@@ -4,37 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculadora RedLine - Fluxo</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
   <style>
     body {
       font-family: 'Inter', sans-serif;
       background-color: #08080c;
       color: #e5e7eb;
+      background-image: 
+        radial-gradient(circle at 50% -10%, rgba(239, 35, 60, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 100% 60%, rgba(239, 35, 60, 0.04) 0%, transparent 40%);
+      background-attachment: fixed;
     }
     .font-heading {
       font-family: 'Rajdhani', sans-serif;
     }
-    .scrollbar-thin::-webkit-scrollbar {
-      width: 6px;
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
     }
-    .scrollbar-thin::-webkit-scrollbar-track {
+    .custom-scroll::-webkit-scrollbar-track {
       background: #0f1016;
     }
-    .scrollbar-thin::-webkit-scrollbar-thumb {
+    .custom-scroll::-webkit-scrollbar-thumb {
       background: #27272a;
-      border-radius: 3px;
+      border-radius: 4px;
     }
-    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-      background: #ef4444;
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #ef233c;
+    }
+    .circle-bg {
+      fill: none;
+      stroke: #1f222e;
+      stroke-width: 3.5;
+    }
+    .circle-progress {
+      fill: none;
+      stroke: #ef233c;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.35s ease;
     }
   </style>
 </head>
 <body class="min-h-screen pb-16 selection:bg-red-600 selection:text-white relative overflow-x-hidden">
 
-  <!-- Header Superior -->
+  <!-- Top Accent Glow -->
+  <div class="h-1 w-full bg-gradient-to-r from-transparent via-[#ef233c] to-transparent shadow-[0_0_15px_#ef233c]"></div>
+
+  <!-- Header Superior Oficial RedLine -->
   <header class="border-b border-zinc-900 bg-[#0a0a0f]/90 backdrop-blur-md sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-3.5">
@@ -52,7 +75,6 @@
             <text x="50" y="63" font-family="'Rajdhani', sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">RED<tspan fill="#ef233c">LINE</tspan></text>
           </svg>
         </div>
-
         <div>
           <h1 class="text-xl font-bold font-heading tracking-wider text-white flex items-center gap-1.5 leading-none">
             REDLINE <span class="text-red-500">MECÂNICA</span>
@@ -60,9 +82,8 @@
           <p class="text-[10px] text-zinc-400 tracking-[0.2em] font-heading font-semibold mt-1">PERFORMANCE • PRECISÃO • CONFIANÇA</p>
         </div>
       </div>
-
-      <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-950/40 text-red-400 border border-red-800/40">
+      <div>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-950/40 text-red-400 border border-red-800/40 shadow-inner">
           <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
           SEASON 8
         </span>
@@ -70,37 +91,501 @@
     </div>
   </header>
 
-  <!-- Banner / Título -->
+  <!-- Banner / Título Central -->
   <section class="max-w-7xl mx-auto px-4 pt-8 pb-4 text-center sm:text-left">
     <span class="text-[11px] font-bold tracking-widest text-red-500 uppercase font-heading">— ORÇAMENTO INSTANTÂNEO</span>
     <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-wide mt-1">
       CALCULADORA <span class="text-red-500">REDLINE - FLUXO</span>
     </h2>
     <p class="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
-      Monte o setup do veículo e veja o preço em tempo real. Para itens com desconto de parceiro, clique na tag <strong>PARCERIA</strong> ao lado do serviço.
+      Escolha o serviço com <strong>1 clique</strong>: clique no quadrado para <strong>preço normal</strong>, ou clique direto no botão <strong>PARCERIA</strong> abaixo do quadrado para aplicar o desconto instantâneo.
     </p>
   </section>
 
   <!-- Grid Principal -->
   <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4">
 
-    <!-- Coluna Esquerda: Categorias e Itens (8 Colunas) -->
-    <div class="lg:col-span-8 space-y-6">
+    <!-- COLUNA ESQUERDA: TODAS AS CATEGORIAS (8 COLUNAS) -->
+    <div class="lg:col-span-8 space-y-6" id="categoriesContainer">
+      <!-- Injetado dinamicamente no script -->
+    </div>
 
-      <!-- 1. PEÇAS DO FULL TUNING -->
-      <div class="bg-[#0f1016] border border-zinc-800/80 rounded-2xl p-5 shadow-md">
-        <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800/60">
-          <div class="flex items-center gap-2.5">
-            <span class="text-base">⚙️</span>
-            <h3 class="font-bold font-heading text-sm sm:text-base text-white tracking-wide">PEÇAS DO FULL TUNING</h3>
+    <!-- COLUNA DIREITA: RESUMO TOTAL E DYNO (4 COLUNAS STICKY) -->
+    <div class="lg:col-span-4 sticky top-20 space-y-4">
+      <div class="bg-[#0f1016] border border-zinc-800 rounded-2xl p-5 shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- TOTAL DO ORÇAMENTO -->
+        <div class="border-b border-zinc-800 pb-4">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-zinc-500 font-heading">TOTAL DO ORÇAMENTO</span>
+          <div class="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-wider mt-1" id="totalPriceDisplay">
+            R$ 0,00
           </div>
-          <span id="badge-full_tuning" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-zinc-900 text-zinc-500 border border-zinc-800">0/6</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <!-- Motor -->
-          <div id="card-motor" class="border border-zinc-800/80 bg-zinc-900/40 rounded-xl p-3.5 flex items-center justify-between transition-all">
-            <div onclick="toggleItem('motor')" class="flex items-center gap-2.5 cursor-pointer flex-1 select-none">
-              <div id="check-motor" class="w-5 h-5 rounded flex items-center justify-center border border-zinc-700 bg-zinc-900 text-xs font-bold"></div>
-              <div>
-                <span class="text-xs font-semibold text-zinc-200 block">Motor <span id="incl-motor" class="text-[10px] text-red-400 font-bold ml-1 hidden">INCLUÍDO</span></span>
-                <span id="price-
+
+        <!-- DYNO RADIAL ESTIMADO -->
+        <div class="py-4 border-b border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center gap-3.5">
+            <div class="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
+              <svg class="w-14 h-14 transform -rotate-90" viewBox="0 0 36 36">
+                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="dynoCircleProgress" class="circle-progress" stroke-dasharray="100, 100" stroke-dashoffset="100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <span id="dynoPercentDisplay" class="absolute text-xs font-bold font-heading text-white">0%</span>
+            </div>
+            <div>
+              <span class="text-[10px] uppercase font-bold text-zinc-500 font-heading block">DYNO ESTIMADO</span>
+              <span class="text-sm font-bold text-zinc-200" id="dynoStageDisplay">PADRÃO</span>
+            </div>
+          </div>
+          <span class="text-[10px] text-zinc-500 text-right leading-tight">Potência<br>Mecânica</span>
+        </div>
+
+        <!-- LISTA DE ITENS SELECIONADOS -->
+        <div class="py-4">
+          <div class="flex items-center justify-between text-xs font-bold font-heading text-zinc-400 mb-2">
+            <span>ITENS SELECIONADOS (<span id="selectedCountDisplay">0</span>)</span>
+            <button onclick="clearAllSelections()" class="text-red-400 hover:text-red-300 underline font-normal text-[11px] transition">
+              Limpar
+            </button>
+          </div>
+          <div class="max-h-80 overflow-y-auto space-y-1.5 custom-scroll pr-1 text-xs" id="itemsListDisplay">
+            <p class="text-zinc-600 italic py-4 text-center text-xs">Nenhum item selecionado</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // DADOS COMPLETOS E EXATOS
+    const CATALOG = [
+      {
+        id: "tuning",
+        title: "PEÇAS DO FULL TUNING",
+        icon: "⚙️",
+        items: [
+          { id: "motor", name: "Motor", normal: 200000, partner: 150000, perf: 25, isMech: true },
+          { id: "freio", name: "Freio", normal: 200000, partner: 150000, perf: 15, isMech: true },
+          { id: "transmissao", name: "Transmissão", normal: 200000, partner: 150000, perf: 20, isMech: true },
+          { id: "suspensao", name: "Suspensão", normal: 100000, partner: 50000, perf: 15, isMech: false },
+          { id: "turbo", name: "Turbo", normal: 300000, partner: 250000, perf: 25, isMech: true },
+          { id: "full_tuning_pkg", name: "Full Tuning", normal: 600000, partner: 550000, perf: 85, isPackage: true }
+        ]
+      },
+      {
+        id: "pinturas",
+        title: "PINTURAS",
+        icon: "🎨",
+        items: [
+          { id: "cromado", name: "Cromado", normal: 100000, partner: 70000 },
+          { id: "cromado2", name: "Cromado 2", normal: 100000, partner: 70000 },
+          { id: "fosco", name: "Fosco", normal: 80000, partner: 60000 },
+          { id: "fosco2", name: "Fosco 2", normal: 80000, partner: 60000 },
+          { id: "metal", name: "Metal", normal: 100000, partner: 80000 },
+          { id: "metal2", name: "Metal 2", normal: 100000, partner: 80000 },
+          { id: "metalico", name: "Metálico", normal: 70000, partner: 50000 },
+          { id: "metalico2", name: "Metálico 2", normal: 70000, partner: 50000 },
+          { id: "perolado", name: "Perolado + Cor", normal: 90000, partner: 50000 },
+          { id: "rgb_fac", name: "RGB da Fac", normal: 120000, partner: 70000 },
+          { id: "fumaca_pneu", name: "Fumaça no Pneu", normal: 70000, partner: 50000 }
+        ]
+      },
+      {
+        id: "acessorios",
+        title: "ACESSÓRIOS EXTERNOS",
+        icon: "🚘",
+        items: [
+          { id: "aerofolio", name: "Aerofólio", normal: 100000, partner: 80000 },
+          { id: "grelha", name: "Grelha", normal: 80000, partner: 50000 },
+          { id: "bloco_motor", name: "Bloco/Motor", normal: 90000, partner: 70000 },
+          { id: "parachoque_d", name: "Parachoque Dianteiro", normal: 80000, partner: 50000 },
+          { id: "parachoque_t", name: "Parachoque Traseiro", normal: 80000, partner: 50000 },
+          { id: "paralama", name: "Paralama", normal: 80000, partner: 50000 },
+          { id: "retrovisor", name: "Retrovisor", normal: 80000, partner: 50000 },
+          { id: "saias", name: "Saias Laterais", normal: 80000, partner: 50000 },
+          { id: "teto", name: "Teto", normal: 80000, partner: 50000 },
+          { id: "chassi", name: "Chassi", normal: 80000, partner: 50000 },
+          { id: "modulo_neon", name: "Módulo Neon", normal: 100000, partner: 80000 }
+        ]
+      },
+      {
+        id: "estetica",
+        title: "ESTÉTICA AUTOMOTIVA",
+        icon: "✨",
+        items: [
+          { id: "decals", name: "Decals/Adesivo", normal: 100000, partner: 70000 },
+          { id: "insulfilm", name: "Insulfilm", normal: 80000, partner: 40000 },
+          { id: "neon", name: "Neon", normal: 70000, partner: 50000 },
+          { id: "xenon", name: "Xenon", normal: 70000, partner: 50000 },
+          { id: "placa", name: "Placa", normal: 70000, partner: 50000 },
+          { id: "rodas", name: "Rodas", normal: 100000, partner: 70000 },
+          { id: "cor_rodas", name: "Cor das rodas", normal: 70000, partner: 50000 }
+        ]
+      },
+      {
+        id: "blindagem",
+        title: "BLINDAGEM DO VEÍCULO",
+        icon: "🛡️",
+        items: [
+          { id: "blindagem_pneu", name: "Blindagem Pneu", normal: 40000, partner: 0 },
+          { id: "full_blindagem", name: "Full Blindagem", normal: 1700000, partner: 1600000 }
+        ]
+      }
+    ];
+
+    // ESTADO:
+    // itemState[id] pode ser: null (desmarcado), 'normal', ou 'partner'
+    const itemState = {};
+    let extrasQty = 0;
+    let extrasPartner = false;
+
+    function formatBRL(val) {
+      return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // 1-CLIQUE SELEÇÃO NORMAL
+    function selectNormal(id) {
+      if (id === "full_tuning_pkg") {
+        if (itemState["full_tuning_pkg"] === 'normal') {
+          delete itemState["full_tuning_pkg"];
+        } else {
+          itemState["full_tuning_pkg"] = 'normal';
+          // Desmarca as 4 mecânicas bloqueadas
+          delete itemState["motor"];
+          delete itemState["freio"];
+          delete itemState["transmissao"];
+          delete itemState["turbo"];
+        }
+      } else {
+        if (itemState[id] === 'normal') {
+          delete itemState[id];
+        } else {
+          itemState[id] = 'normal';
+        }
+      }
+      refreshUI();
+    }
+
+    // 1-CLIQUE SELEÇÃO PARCERIA (DIRETO NO BOTÃO EMBAIXO DO QUADRADO)
+    function selectPartner(id, e) {
+      if (e) e.stopPropagation();
+      if (id === "full_tuning_pkg") {
+        if (itemState["full_tuning_pkg"] === 'partner') {
+          delete itemState["full_tuning_pkg"];
+        } else {
+          itemState["full_tuning_pkg"] = 'partner';
+          delete itemState["motor"];
+          delete itemState["freio"];
+          delete itemState["transmissao"];
+          delete itemState["turbo"];
+        }
+      } else {
+        if (itemState[id] === 'partner') {
+          delete itemState[id];
+        } else {
+          itemState[id] = 'partner';
+        }
+      }
+      refreshUI();
+    }
+
+    // EXTRAS CONTROLS
+    function changeExtras(delta) {
+      extrasQty = Math.max(0, extrasQty + delta);
+      refreshUI();
+    }
+
+    function toggleExtrasPartner() {
+      extrasPartner = !extrasPartner;
+      refreshUI();
+    }
+
+    function clearAllSelections() {
+      for (let k in itemState) delete itemState[k];
+      extrasQty = 0;
+      extrasPartner = false;
+      refreshUI();
+    }
+
+    // RENDERIZAÇÃO E ATUALIZAÇÃO DA INTERFACE
+    function renderApp() {
+      const container = document.getElementById("categoriesContainer");
+      let html = "";
+
+      CATALOG.forEach(cat => {
+        html += `
+          <div class="bg-[#0f1016] border border-zinc-800/80 rounded-2xl p-5 shadow-md">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800/60">
+              <div class="flex items-center gap-2.5">
+                <span class="text-base">${cat.icon}</span>
+                <h3 class="font-bold font-heading text-sm sm:text-base text-white tracking-wide">${cat.title}</h3>
+              </div>
+              <span id="badge-${cat.id}" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-zinc-900 text-zinc-500 border border-zinc-800">
+                0/${cat.items.length}
+              </span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        `;
+
+        cat.items.forEach(it => {
+          html += `
+            <div id="card-${it.id}" class="border border-zinc-800/80 bg-zinc-900/40 rounded-xl p-3.5 flex items-center justify-between transition-all">
+              
+              <!-- ÁREA PRINCIPAL: Checkbox e Botão Parceria LOGO ABAIXO com 1 clique cada -->
+              <div class="flex items-start gap-3 flex-1 select-none">
+                
+                <!-- Coluna com Checkbox Normal e Tag Parceria logo abaixo -->
+                <div class="flex flex-col items-center gap-1.5 pt-0.5">
+                  <!-- Quadrado / Checkbox para Preço Normal (1 clique) -->
+                  <div 
+                    onclick="selectNormal('${it.id}')" 
+                    id="check-${it.id}" 
+                    title="Clique para selecionar preço normal"
+                    class="w-6 h-6 rounded-md flex items-center justify-center border border-zinc-700 bg-zinc-900 text-xs font-bold cursor-pointer transition-all hover:border-zinc-500 hover:scale-105 active:scale-95"
+                  ></div>
+
+                  <!-- Botão PARCERIA logo abaixo do quadrado (1 clique) -->
+                  <button 
+                    type="button" 
+                    id="btn-part-${it.id}" 
+                    onclick="selectPartner('${it.id}', event)" 
+                    title="Clique para selecionar diretamente com valor de parceria"
+                    class="px-2 py-0.5 rounded text-[10px] font-bold font-heading tracking-wider border bg-zinc-800/80 text-zinc-400 border-zinc-700 hover:border-lime-500 hover:text-lime-400 transition-all active:scale-95 whitespace-nowrap"
+                  >
+                    PARCERIA
+                  </button>
+                </div>
+
+                <!-- Textos e Preços -->
+                <div onclick="selectNormal('${it.id}')" class="cursor-pointer flex-1">
+                  <span class="text-xs font-semibold text-zinc-200 block leading-tight">
+                    ${it.name} 
+                    <span id="tag-inc-${it.id}" class="text-[10px] text-red-400 font-bold ml-1 hidden">INCLUÍDO</span>
+                  </span>
+                  
+                  <div class="mt-1" id="price-box-${it.id}">
+                    <span class="text-zinc-400 font-medium text-xs">${formatBRL(it.normal)}</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          `;
+        });
+
+        html += `</div></div>`;
+      });
+
+      // SEÇÃO DE EXTRAS
+      html += `
+        <div class="bg-[#0f1016] border border-zinc-800/80 rounded-2xl p-5 shadow-md">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800/60">
+            <div class="flex items-center gap-2.5">
+              <span class="text-base">➕</span>
+              <h3 class="font-bold font-heading text-sm sm:text-base text-white tracking-wide">EXTRAS</h3>
+            </div>
+            <span id="badge-extras" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-zinc-900 text-zinc-500 border border-zinc-800">0x</span>
+          </div>
+          <div class="border border-zinc-800 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-zinc-900/30">
+            <div>
+              <h4 class="text-xs font-bold text-white">Quantidade de Extras</h4>
+              <p id="label-extras" class="text-[11px] text-zinc-500">R$ 90.000,00 por unidade</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button 
+                type="button"
+                id="btn-extras-part" 
+                onclick="toggleExtrasPartner()" 
+                class="px-2.5 py-1.5 rounded-lg text-[10px] font-bold font-heading tracking-wider border bg-zinc-800 text-zinc-400 border-zinc-700 hover:text-white transition-all active:scale-95"
+              >
+                PARCERIA (R$ 70K) ?
+              </button>
+              <div class="flex items-center bg-black/40 border border-zinc-800 rounded-lg p-1">
+                <button type="button" onclick="changeExtras(-1)" class="w-7 h-7 rounded bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm transition">-</button>
+                <span id="display-extras-qty" class="w-10 text-center font-bold text-xs text-zinc-200">0</span>
+                <button type="button" onclick="changeExtras(1)" class="w-7 h-7 rounded bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm transition">+</button>
+              </div>
+              <div class="text-xs min-w-[90px] text-right">
+                <span class="text-zinc-500 text-[10px] block">Subtotal:</span>
+                <span id="display-extras-subtotal" class="font-bold text-zinc-200">R$ 0,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      refreshUI();
+    }
+
+    function refreshUI() {
+      const isFull = (itemState["full_tuning_pkg"] === 'normal' || itemState["full_tuning_pkg"] === 'partner');
+      let total = 0;
+      let dynoPoints = 0;
+      let selectedHtml = "";
+
+      CATALOG.forEach(cat => {
+        let countInCat = 0;
+
+        cat.items.forEach(it => {
+          const state = itemState[it.id]; // 'normal', 'partner' ou undefined
+          const card = document.getElementById(`card-${it.id}`);
+          const check = document.getElementById(`check-${it.id}`);
+          const priceBox = document.getElementById(`price-box-${it.id}`);
+          const btnPart = document.getElementById(`btn-part-${it.id}`);
+          const tagInc = document.getElementById(`tag-inc-${it.id}`);
+
+          if (!card) return;
+
+          // Full Tuning bloqueia apenas as 4 peças mecânicas
+          const isBlocked = isFull && it.isMech;
+
+          if (isBlocked) {
+            card.className = "border border-zinc-800/80 bg-zinc-900/20 rounded-xl p-3.5 flex items-center justify-between opacity-35 cursor-not-allowed";
+            if (tagInc) tagInc.classList.remove("hidden");
+            if (btnPart) {
+              btnPart.classList.add("hidden");
+            }
+            check.innerHTML = "";
+            check.className = "w-6 h-6 rounded-md flex items-center justify-center border border-zinc-700 bg-zinc-900 text-xs font-bold pointer-events-none";
+            priceBox.innerHTML = `<span class="text-zinc-500 font-medium text-xs">${formatBRL(it.normal)}</span>`;
+          } else {
+            if (tagInc) tagInc.classList.add("hidden");
+            if (btnPart) btnPart.classList.remove("hidden");
+
+            if (state === 'normal') {
+              countInCat++;
+              total += it.normal;
+              if (it.perf) dynoPoints += it.perf;
+
+              // Card em Modo Normal Selecionado (Vermelho)
+              card.className = "border border-red-500 bg-red-950/20 rounded-xl p-3.5 flex items-center justify-between transition-all shadow-[0_0_12px_rgba(239,68,68,0.25)]";
+              check.className = "w-6 h-6 rounded-md flex items-center justify-center border border-red-500 bg-red-500 text-white text-xs font-bold cursor-pointer shadow-md";
+              check.innerHTML = "✓";
+              btnPart.className = "px-2 py-0.5 rounded text-[10px] font-bold font-heading tracking-wider border bg-zinc-800 text-zinc-400 border-zinc-700 hover:text-white hover:border-lime-500 transition-all";
+              btnPart.textContent = "PARCERIA";
+              priceBox.innerHTML = `<span class="text-red-400 font-bold text-xs">${formatBRL(it.normal)}</span>`;
+
+              selectedHtml += `
+                <div class="flex items-center justify-between py-1 border-b border-zinc-900/80">
+                  <span class="text-zinc-300 truncate max-w-[170px]">${it.name}</span>
+                  <span class="font-bold text-red-400">${formatBRL(it.normal)}</span>
+                </div>
+              `;
+            } else if (state === 'partner') {
+              countInCat++;
+              total += it.partner;
+              if (it.perf) dynoPoints += it.perf;
+
+              // Card em Modo Parceria Selecionado (Verde Neon)
+              card.className = "border border-lime-500 bg-lime-950/20 rounded-xl p-3.5 flex items-center justify-between transition-all shadow-[0_0_12px_rgba(132,204,22,0.25)]";
+              check.className = "w-6 h-6 rounded-md flex items-center justify-center border border-lime-500 bg-lime-500 text-black text-xs font-bold cursor-pointer shadow-md";
+              check.innerHTML = "✓";
+              btnPart.className = "px-2 py-0.5 rounded text-[10px] font-bold font-heading tracking-wider border bg-lime-500 text-black border-lime-400 shadow-[0_0_10px_rgba(132,204,22,0.5)] transition-all";
+              btnPart.textContent = "PARCERIA ✓";
+              priceBox.innerHTML = `<span class="line-through text-zinc-500 text-[11px] mr-1.5">${formatBRL(it.normal)}</span><span class="text-lime-400 font-bold text-xs">${formatBRL(it.partner)}</span>`;
+
+              selectedHtml += `
+                <div class="flex items-center justify-between py-1 border-b border-zinc-900/80">
+                  <span class="text-zinc-300 truncate max-w-[170px]">
+                    ${it.name} <span class="text-lime-400 text-[10px] font-bold">[PARC]</span>
+                  </span>
+                  <span class="font-bold text-lime-400">${formatBRL(it.partner)}</span>
+                </div>
+              `;
+            } else {
+              // Desmarcado
+              card.className = "border border-zinc-800/80 bg-zinc-900/40 rounded-xl p-3.5 flex items-center justify-between transition-all hover:border-zinc-700";
+              check.className = "w-6 h-6 rounded-md flex items-center justify-center border border-zinc-700 bg-zinc-900 text-xs font-bold cursor-pointer transition-all hover:border-zinc-500";
+              check.innerHTML = "";
+              btnPart.className = "px-2 py-0.5 rounded text-[10px] font-bold font-heading tracking-wider border bg-zinc-800/80 text-zinc-400 border-zinc-700 hover:border-lime-500 hover:text-lime-400 transition-all";
+              btnPart.textContent = "PARCERIA";
+              priceBox.innerHTML = `<span class="text-zinc-400 font-medium text-xs">${formatBRL(it.normal)}</span>`;
+            }
+          }
+        });
+
+        // Badge da Categoria
+        const b = document.getElementById(`badge-${cat.id}`);
+        if (b) {
+          b.textContent = `${countInCat}/${cat.items.length}`;
+          b.className = `text-[11px] font-bold px-2 py-0.5 rounded-full ${countInCat > 0 ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-zinc-900 text-zinc-500 border border-zinc-800'}`;
+        }
+      });
+
+      // Cálculo e exibição dos Extras
+      const unitExtra = extrasPartner ? 70000 : 90000;
+      const totalExtras = extrasQty * unitExtra;
+      total += totalExtras;
+
+      document.getElementById("display-extras-qty").textContent = extrasQty;
+      document.getElementById("badge-extras").textContent = `${extrasQty}x`;
+      document.getElementById("badge-extras").className = `text-[11px] font-bold px-2 py-0.5 rounded-full ${extrasQty > 0 ? (extrasPartner ? 'bg-lime-500/20 text-lime-400 border border-lime-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30') : 'bg-zinc-900 text-zinc-500 border border-zinc-800'}`;
+
+      const btnExtPart = document.getElementById("btn-extras-part");
+      const lblExt = document.getElementById("label-extras");
+      const subExt = document.getElementById("display-extras-subtotal");
+
+      if (extrasPartner) {
+        btnExtPart.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-bold font-heading tracking-wider border bg-lime-500 text-black border-lime-400 shadow-[0_0_8px_rgba(132,204,22,0.4)] transition-all";
+        btnExtPart.textContent = "PARCERIA (R$ 70K) ✓";
+        lblExt.innerHTML = `<span class="line-through mr-1 text-zinc-500">${formatBRL(90000)}</span><span class="text-lime-400 font-bold">${formatBRL(70000)}</span> por unidade`;
+        subExt.className = "font-bold text-lime-400";
+      } else {
+        btnExtPart.className = "px-2.5 py-1.5 rounded-lg text-[10px] font-bold font-heading tracking-wider border bg-zinc-800 text-zinc-400 border-zinc-700 hover:text-white transition-all";
+        btnExtPart.textContent = "PARCERIA (R$ 70K) ?";
+        lblExt.textContent = "R$ 90.000,00 por unidade";
+        subExt.className = "font-bold text-zinc-200";
+      }
+      subExt.textContent = formatBRL(totalExtras);
+
+      if (extrasQty > 0) {
+        selectedHtml += `
+          <div class="flex items-center justify-between py-1 border-b border-zinc-900/80">
+            <span class="text-zinc-300 truncate max-w-[170px]">
+              Extras (${extrasQty}x) ${extrasPartner ? '<span class="text-lime-400 text-[10px] font-bold">[PARC]</span>' : ''}
+            </span>
+            <span class="font-bold ${extrasPartner ? 'text-lime-400' : 'text-zinc-300'}">${formatBRL(totalExtras)}</span>
+          </div>
+        `;
+      }
+
+      // Painel lateral
+      const selectedTotalCount = Object.keys(itemState).length + (extrasQty > 0 ? 1 : 0);
+      document.getElementById("selectedCountDisplay").textContent = selectedTotalCount;
+      document.getElementById("totalPriceDisplay").textContent = formatBRL(total);
+      document.getElementById("itemsListDisplay").innerHTML = selectedHtml || `<p class="text-zinc-600 italic py-4 text-center text-xs">Nenhum item selecionado</p>`;
+
+      // Dyno radial
+      let dynoPercent = Math.min(100, dynoPoints);
+      let stage = "PADRÃO";
+      if (dynoPercent >= 85) stage = "FULL MONSTER";
+      else if (dynoPercent >= 60) stage = "STAGE 3";
+      else if (dynoPercent >= 30) stage = "STAGE 2";
+      else if (dynoPercent > 0) stage = "STAGE 1";
+
+      document.getElementById("dynoPercentDisplay").textContent = `${dynoPercent}%`;
+      document.getElementById("dynoStageDisplay").textContent = stage;
+
+      const circle = document.getElementById("dynoCircleProgress");
+      if (circle) {
+        const offset = 100 - (dynoPercent / 100) * 100;
+        circle.style.strokeDashoffset = offset;
+      }
+    }
+
+    // Inicialização direta e imediata
+    window.addEventListener("DOMContentLoaded", () => {
+      renderApp();
+    });
+    // Fallback caso já esteja carregado
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      renderApp();
+    }
+  </script>
+</body>
+</html>
