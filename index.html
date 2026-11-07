@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Serviços - RedLine Mecânica</title>
+  <title>Calculadora RedLine - RedLine Mecânica</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,20 +34,36 @@
 </head>
 <body class="min-h-screen pb-16 selection:bg-red-600 selection:text-white relative overflow-x-hidden">
 
-  <!-- Header Superior -->
+  <!-- Header Superior com a Logo Oficial RedLine -->
   <header class="border-b border-zinc-900 bg-[#0a0a0f]/90 backdrop-blur-md sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-lg bg-red-600/20 border border-red-500/50 flex items-center justify-center text-red-500 font-bold text-lg font-heading shadow-[0_0_15px_rgba(239,68,68,0.4)]">
-          RL
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3.5">
+        <!-- Emblema / Logo RedLine Vetorial Fiel -->
+        <div class="relative w-11 h-11 flex-shrink-0 flex items-center justify-center">
+          <svg class="w-11 h-11 filter drop-shadow-[0_0_8px_rgba(239,35,60,0.6)]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Engrenagem Externa -->
+            <path d="M50 8C48.5 8 47.5 9 47 10.5L45.5 15C42.5 15.8 39.8 17 37.2 18.5L33 16C31.8 15.2 30.2 15.5 29.2 16.5L25 20.7C24 21.7 23.7 23.3 24.5 24.5L27 28.7C25.5 31.3 24.3 34 23.5 37L19 38.5C17.5 39 16.5 40 16.5 41.5V47.5C16.5 49 17.5 50 19 50.5L23.5 52C24.3 55 25.5 57.7 27 60.3L24.5 64.5C23.7 65.7 24 67.3 25 68.3L29.2 72.5C30.2 73.5 31.8 73.8 33 73L37.2 70.5C39.8 72 42.5 73.2 45.5 74L47 78.5C47.5 80 48.5 81 50 81H56C57.5 81 58.5 80 59 78.5L60.5 74C63.5 73.2 66.2 72 68.8 70.5L73 73C74.2 73.8 75.8 73.5 76.8 72.5L81 68.3C82 67.3 82.3 65.7 81.5 64.5L79 60.3C80.5 57.7 81.7 55 82.5 52L87 50.5C88.5 50 89.5 49 89.5 47.5V41.5C89.5 40 88.5 39 87 38.5L82.5 37C81.7 34 80.5 31.3 79 28.7L81.5 24.5C82.3 23.3 82 21.7 81 20.7L76.8 16.5C75.8 15.5 74.2 15.2 73 16L68.8 18.5C66.2 17 63.5 15.8 60.5 15L59 10.5C58.5 9 57.5 8 56 8H50Z" fill="#18181e" stroke="#ef233c" stroke-width="2.5"/>
+            <!-- Detalhe Circular e Pistões -->
+            <circle cx="50" cy="44" r="23" fill="#0d0e14" stroke="#e5e7eb" stroke-width="1.5"/>
+            <path d="M40 32L50 44M60 32L50 44" stroke="#ef233c" stroke-width="3" stroke-linecap="round"/>
+            <rect x="36" y="27" width="8" height="6" rx="1.5" fill="#e5e7eb"/>
+            <rect x="56" y="27" width="8" height="6" rx="1.5" fill="#e5e7eb"/>
+            <circle cx="50" cy="44" r="6" fill="#ef233c"/>
+            <circle cx="50" cy="44" r="2.5" fill="#000000"/>
+            <!-- Faixa Central RedLine -->
+            <rect x="18" y="52" width="64" height="15" rx="3" fill="#08080c" stroke="#ef233c" stroke-width="1.8"/>
+            <text x="50" y="63" font-family="'Rajdhani', sans-serif" font-weight="800" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">RED<tspan fill="#ef233c">LINE</tspan></text>
+          </svg>
         </div>
+
         <div>
-          <h1 class="text-xl font-bold font-heading tracking-wider text-white flex items-center gap-2">
+          <h1 class="text-xl font-bold font-heading tracking-wider text-white flex items-center gap-1.5 leading-none">
             REDLINE <span class="text-red-500">MECÂNICA</span>
           </h1>
-          <p class="text-[10px] text-zinc-500 tracking-wider">PERFORMANCE • PRECISÃO • CONFIANÇA</p>
+          <p class="text-[10px] text-zinc-400 tracking-[0.2em] font-heading font-semibold mt-1">PERFORMANCE • PRECISÃO • CONFIANÇA</p>
         </div>
       </div>
+
       <div class="flex items-center gap-3">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-red-950/40 text-red-400 border border-red-800/40">
           <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
@@ -57,518 +73,19 @@
     </div>
   </header>
 
-  <!-- Banner / Título -->
+  <!-- Banner / Título Atualizado para CALCULADORA REDLINE -->
   <section class="max-w-7xl mx-auto px-4 pt-8 pb-4 text-center sm:text-left">
     <span class="text-[11px] font-bold tracking-widest text-red-500 uppercase font-heading">— ORÇAMENTO INSTANTÂNEO</span>
     <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-white tracking-wide mt-1">
-      CALCULADORA DE <span class="text-red-500">SERVIÇOS</span>
+      CALCULADORA <span class="text-red-500">REDLINE</span>
     </h2>
     <p class="text-zinc-400 text-xs sm:text-sm mt-1 max-w-2xl">
       Monte o setup do veículo, veja o preço em tempo real e gere o orçamento pronto para enviar ao cliente.
     </p>
   </section>
 
-  <!-- Conteúdo Principal com Duas Colunas -->
+  <!-- Conteúdo Principal -->
   <main class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-4">
 
     <!-- Coluna Esquerda: Categorias e Itens (8 Colunas) -->
-    <div class="lg:col-span-8 space-y-6">
-
-      <!-- Card Parceria RedLine Switch -->
-      <div class="bg-[#0f1016]/90 border border-zinc-800/80 rounded-2xl p-5 flex items-center justify-between shadow-lg transition-all" id="partnerCard">
-        <div class="flex items-center gap-3.5">
-          <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500" id="partnerIcon">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-sm font-bold text-white tracking-wide font-heading">PARCERIA REDLINE</h3>
-            <p class="text-xs text-zinc-400">Aplica a tabela exclusiva de valores reduzidos e regras de parceiro</p>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <span class="text-xs font-bold font-heading tracking-wider transition-colors" id="partnerStatusText">DESATIVADA</span>
-          <label class="relative inline-flex items-center cursor-pointer">
-            <input type="checkbox" id="partnerToggle" class="sr-only peer">
-            <div class="w-12 h-6 bg-zinc-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-lime-500 peer-checked:shadow-[0_0_15px_rgba(132,204,22,0.5)]"></div>
-          </label>
-        </div>
-      </div>
-
-      <!-- Container Dinâmico das Categorias -->
-      <div id="catalogContainer" class="space-y-6"></div>
-
-    </div>
-
-    <!-- Coluna Direita: Resumo do Orçamento (4 Colunas Sticky) -->
-    <div class="lg:col-span-4 sticky top-20 space-y-4">
-
-      <div class="bg-[#0f1016] border border-zinc-800 rounded-2xl p-5 shadow-2xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="border-b border-zinc-800 pb-4">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-zinc-500 font-heading">TOTAL DO ORÇAMENTO</span>
-          <div class="text-3xl font-extrabold font-heading text-white tracking-wider mt-1" id="totalPrice">
-            R$ 0,00
-          </div>
-          <div class="text-xs text-lime-400 font-semibold mt-1 hidden" id="partnerBadgeApplied">
-            ✓ Tabela de Parceria Aplicada
-          </div>
-        </div>
-
-        <!-- Indicador Dyno / Potência Estimada -->
-        <div class="py-4 border-b border-zinc-800 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full border-2 border-red-500/30 flex items-center justify-center font-bold font-heading text-sm text-red-400" id="dynoPercent">
-              0%
-            </div>
-            <div>
-              <span class="text-[10px] uppercase font-bold text-zinc-500 font-heading block">DYNO ESTIMADO</span>
-              <span class="text-xs font-bold text-zinc-200" id="dynoStage">PADRÃO</span>
-            </div>
-          </div>
-          <span class="text-[10px] text-zinc-500 text-right">Cálculo de<br>Performance</span>
-        </div>
-
-        <!-- Itens Selecionados (Lista) -->
-        <div class="py-4">
-          <div class="flex items-center justify-between text-xs font-bold font-heading text-zinc-400 mb-2">
-            <span>ITENS SELECIONADOS (<span id="selectedCount">0</span>)</span>
-            <button onclick="clearAllSelections()" class="text-red-400 hover:text-red-300 underline font-normal text-[11px]">Limpar</button>
-          </div>
-          <div class="max-h-52 overflow-y-auto space-y-1.5 scrollbar-thin pr-1 text-xs" id="selectedItemsList">
-            <p class="text-zinc-600 italic py-2 text-center text-xs">Nenhum item selecionado</p>
-          </div>
-        </div>
-
-        <!-- Cobrança Rápida (ID do Cliente) -->
-        <div class="pt-4 border-t border-zinc-800 space-y-3">
-          <span class="text-[10px] uppercase font-bold text-zinc-500 font-heading block">COBRANÇA RÁPIDA</span>
-          <div>
-            <label class="text-[11px] text-zinc-400 block mb-1">ID DO CLIENTE</label>
-            <input type="number" id="clientIdInput" placeholder="Ex: 1559" class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-red-500">
-          </div>
-
-          <button onclick="copyQuote()" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold font-heading tracking-wider uppercase transition-all bg-red-600 hover:bg-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.4)] flex items-center justify-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-            </svg>
-            COPIAR ORÇAMENTO (DISCORD / FIVEM)
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Player de Áudio RedLine Music -->
-      <div class="bg-[#0f1016] border border-zinc-800 rounded-2xl p-4 shadow-xl">
-        <div class="flex items-center justify-between mb-2">
-          <div class="flex items-center gap-2 text-xs font-bold font-heading text-zinc-300">
-            <span class="text-red-500">♫</span> REDLINE MUSIC
-          </div>
-          <span class="text-[10px] text-zinc-500">YouTube Player</span>
-        </div>
-        <div class="flex gap-2">
-          <input type="text" id="ytUrlInput" placeholder="Cole o link do YouTube..." class="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-[11px] text-white focus:outline-none focus:border-red-500">
-          <button onclick="playMusic()" class="bg-red-600 hover:bg-red-500 text-white font-bold font-heading px-3 py-1.5 rounded-lg text-xs uppercase">Tocar</button>
-        </div>
-        <div id="ytPlayerContainer" class="mt-2.5 hidden">
-          <iframe id="ytIframe" class="w-full h-24 rounded-lg border border-zinc-800" src="" frameborder="0" allow="autoplay; encrypted-media"></iframe>
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- Notificação Flutuante de Cópia -->
-  <div id="copyToast" class="fixed bottom-6 right-6 bg-emerald-500 text-black font-bold font-heading px-4 py-2.5 rounded-xl shadow-2xl transition-opacity duration-300 opacity-0 pointer-events-none text-xs flex items-center gap-2 z-50">
-    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-    ORÇAMENTO COPIADO COM SUCESSO!
-  </div>
-
-  <script>
-    // Definição Completa do Catálogo com Preço Normal e Parceria
-    const catalog = [
-      {
-        id: "full_tuning",
-        name: "PEÇAS DO FULL TUNING",
-        icon: "⚙️",
-        isTuningCategory: true,
-        items: [
-          { id: "motor", name: "Motor", normal: 200000, partner: 150000, perf: 25 },
-          { id: "freio", name: "Freio", normal: 200000, partner: 150000, perf: 15 },
-          { id: "transmissao", name: "Transmissão", normal: 200000, partner: 150000, perf: 20 },
-          { id: "suspensao", name: "Suspensão", normal: 100000, partner: 50000, perf: 15, isSeparateInPartner: true },
-          { id: "turbo", name: "Turbo", normal: 300000, partner: 250000, perf: 25 },
-          { id: "pacote_full", name: "Full Tuning", normal: 600000, partner: 550000, isPackage: true, perf: 90 }
-        ]
-      },
-      {
-        id: "pinturas",
-        name: "PINTURAS",
-        icon: "🎨",
-        items: [
-          { id: "cromado", name: "Cromado", normal: 100000, partner: 70000 },
-          { id: "cromado2", name: "Cromado 2", normal: 100000, partner: 70000 },
-          { id: "fosco", name: "Fosco", normal: 80000, partner: 60000 },
-          { id: "fosco2", name: "Fosco 2", normal: 80000, partner: 60000 },
-          { id: "metal", name: "Metal", normal: 100000, partner: 80000 },
-          { id: "metal2", name: "Metal 2", normal: 100000, partner: 80000 },
-          { id: "metalico", name: "Metálico", normal: 70000, partner: 50000 },
-          { id: "metalico2", name: "Metálico 2", normal: 70000, partner: 50000 },
-          { id: "perolado", name: "Perolado + Cor", normal: 90000, partner: 50000 },
-          { id: "rgb_fac", name: "RGB da Fac", normal: 120000, partner: 70000 },
-          { id: "fumaca_pneu", name: "Fumaça no Pneu", normal: 70000, partner: 50000 }
-        ]
-      },
-      {
-        id: "acessorios_externos",
-        name: "ACESSÓRIOS EXTERNOS",
-        icon: "🚘",
-        items: [
-          { id: "aerofolio", name: "Aerofólio", normal: 100000, partner: 80000 },
-          { id: "grelha", name: "Grelha", normal: 80000, partner: 50000 },
-          { id: "bloco_motor", name: "Bloco/Motor", normal: 90000, partner: 70000 },
-          { id: "parachoque_d", name: "Parachoque Dianteiro", normal: 80000, partner: 50000 },
-          { id: "parachoque_t", name: "Parachoque Traseiro", normal: 80000, partner: 50000 },
-          { id: "paralama", name: "Paralama", normal: 80000, partner: 50000 },
-          { id: "retrovisor", name: "Retrovisor", normal: 80000, partner: 50000 },
-          { id: "saias", name: "Saias Laterais", normal: 80000, partner: 50000 },
-          { id: "teto", name: "Teto", normal: 80000, partner: 50000 },
-          { id: "chassi", name: "Chassi", normal: 80000, partner: 50000 },
-          { id: "modulo_neon", name: "Módulo Neon", normal: 100000, partner: 80000 }
-        ]
-      },
-      {
-        id: "estetica",
-        name: "ESTÉTICA AUTOMOTIVA",
-        icon: "✨",
-        items: [
-          { id: "decals", name: "Decals/Adesivo", normal: 100000, partner: 70000 },
-          { id: "insulfilm", name: "Insulfilm", normal: 80000, partner: 40000 },
-          { id: "neon", name: "Neon", normal: 70000, partner: 50000 },
-          { id: "xenon", name: "Xenon", normal: 70000, partner: 50000 },
-          { id: "placa", name: "Placa", normal: 70000, partner: 50000 },
-          { id: "rodas", name: "Rodas", normal: 100000, partner: 70000 },
-          { id: "cor_rodas", name: "Cor das rodas", normal: 70000, partner: 50000 }
-        ]
-      },
-      {
-        id: "blindagem",
-        name: "BLINDAGEM DO VEÍCULO",
-        icon: "🛡️",
-        items: [
-          { id: "blindagem_pneu", name: "Blindagem Pneu", normal: 40000, partner: 0 },
-          { id: "full_blindagem", name: "Full Blindagem", normal: 1700000, partner: 1600000 }
-        ]
-      }
-    ];
-
-    let isPartnerActive = false;
-    let selectedItems = new Set();
-    let extrasQuantity = 0;
-    const EXTRA_UNIT_PRICE = 90000;
-
-    function formatBRL(val) {
-      return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    }
-
-    function renderCatalog() {
-      const container = document.getElementById("catalogContainer");
-      let html = "";
-
-      catalog.forEach(cat => {
-        const selectedInCat = cat.items.filter(it => selectedItems.has(it.id)).length;
-        const totalInCat = cat.items.length;
-
-        html += `
-          <div class="bg-[#0f1016] border border-zinc-800/80 rounded-2xl p-5 shadow-md">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800/60">
-              <div class="flex items-center gap-2.5">
-                <span class="text-base">${cat.icon}</span>
-                <h3 class="font-bold font-heading text-sm sm:text-base text-white tracking-wide">${cat.name}</h3>
-              </div>
-              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full ${selectedInCat > 0 ? 'bg-lime-500/20 text-lime-400 border border-lime-500/30' : 'bg-zinc-900 text-zinc-500 border border-zinc-800'}">
-                ${selectedInCat}/${totalInCat}
-              </span>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        `;
-
-        cat.items.forEach(item => {
-          const isSelected = selectedItems.has(item.id);
-          const isFullTuningSelected = selectedItems.has("pacote_full");
-          
-          let isDisabled = false;
-          let extraBadge = "";
-
-          // Regra do Full Tuning
-          if (isFullTuningSelected && !item.isPackage) {
-            if (isPartnerActive) {
-              if (!item.isSeparateInPartner) {
-                isDisabled = true;
-                extraBadge = `<span class="text-[10px] text-red-400 font-bold ml-2">INCLUÍDO</span>`;
-              }
-            } else {
-              isDisabled = true;
-              extraBadge = `<span class="text-[10px] text-red-400 font-bold ml-2">INCLUÍDO</span>`;
-            }
-          }
-
-          // Preços
-          let normalPriceStr = formatBRL(item.normal);
-          let partnerPriceStr = formatBRL(item.partner);
-
-          let priceDisplay = "";
-          if (isPartnerActive) {
-            priceDisplay = `
-              <span class="text-zinc-500 line-through text-[11px] mr-1.5">${normalPriceStr}</span>
-              <span class="text-lime-400 font-bold">${partnerPriceStr}</span>
-            `;
-          } else {
-            priceDisplay = `<span class="text-zinc-300 font-medium">${normalPriceStr}</span>`;
-          }
-
-          // Estilo quando selecionado
-          const activeCardClass = isSelected
-            ? 'border-lime-500 bg-lime-950/20 shadow-[0_0_12px_rgba(132,204,22,0.2)]'
-            : 'border-zinc-800/80 bg-zinc-900/40 hover:border-zinc-700';
-
-          const checkboxClass = isSelected
-            ? 'bg-lime-500 border-lime-500 text-black'
-            : 'border-zinc-700 bg-zinc-900';
-
-          html += `
-            <div 
-              onclick="${isDisabled ? '' : `toggleItem('${item.id}')`}" 
-              class="border rounded-xl p-3.5 flex items-center justify-between cursor-pointer transition-all ${activeCardClass} ${isDisabled ? 'opacity-40 cursor-not-allowed' : ''}"
-            >
-              <div class="flex items-center gap-2.5">
-                <div class="w-5 h-5 rounded flex items-center justify-center border text-xs font-bold transition-all ${checkboxClass}">
-                  ${isSelected ? '✓' : ''}
-                </div>
-                <span class="text-xs font-semibold text-zinc-200">${item.name}</span>
-                ${extraBadge}
-              </div>
-              <div class="text-xs">
-                ${isDisabled ? '' : priceDisplay}
-              </div>
-            </div>
-          `;
-        });
-
-        html += `</div></div>`;
-      });
-
-      // Seção de Extras
-      html += `
-        <div class="bg-[#0f1016] border border-zinc-800/80 rounded-2xl p-5 shadow-md">
-          <div class="flex items-center justify-between pb-3 mb-4 border-b border-zinc-800/60">
-            <div class="flex items-center gap-2.5">
-              <span class="text-base">➕</span>
-              <h3 class="font-bold font-heading text-sm sm:text-base text-white tracking-wide">EXTRAS</h3>
-            </div>
-            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full ${extrasQuantity > 0 ? 'bg-lime-500/20 text-lime-400 border border-lime-500/30' : 'bg-zinc-900 text-zinc-500 border border-zinc-800'}">
-              ${extrasQuantity}x
-            </span>
-          </div>
-
-          <div class="border border-zinc-800 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-zinc-900/30">
-            <div>
-              <h4 class="text-xs font-bold text-white">Quantidade de Extras</h4>
-              <p class="text-[11px] text-zinc-500">R$ 90.000,00 por unidade</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <div class="flex items-center bg-black/40 border border-zinc-800 rounded-lg p-1">
-                <button onclick="changeExtras(-1)" class="w-7 h-7 rounded bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm">-</button>
-                <span class="w-10 text-center font-bold text-xs text-lime-400">${extrasQuantity}</span>
-                <button onclick="changeExtras(1)" class="w-7 h-7 rounded bg-zinc-800 hover:bg-zinc-700 text-white font-bold flex items-center justify-center text-sm">+</button>
-              </div>
-              <div class="text-xs">
-                <span class="text-zinc-500 text-[10px] block">Subtotal:</span>
-                <span class="font-bold text-lime-400">${formatBRL(extrasQuantity * EXTRA_UNIT_PRICE)}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      container.innerHTML = html;
-      updateCalculations();
-    }
-
-    function toggleItem(id) {
-      if (id === "pacote_full") {
-        if (selectedItems.has("pacote_full")) {
-          selectedItems.delete("pacote_full");
-        } else {
-          selectedItems.add("pacote_full");
-          // Remove seleções individuais de motor, freio, transmissão e turbo
-          selectedItems.delete("motor");
-          selectedItems.delete("freio");
-          selectedItems.delete("transmissao");
-          selectedItems.delete("turbo");
-          if (!isPartnerActive) {
-            selectedItems.delete("suspensao");
-          }
-        }
-      } else {
-        if (selectedItems.has(id)) {
-          selectedItems.delete(id);
-        } else {
-          selectedItems.add(id);
-        }
-      }
-      renderCatalog();
-    }
-
-    function changeExtras(delta) {
-      extrasQuantity = Math.max(0, extrasQuantity + delta);
-      renderCatalog();
-    }
-
-    function clearAllSelections() {
-      selectedItems.clear();
-      extrasQuantity = 0;
-      renderCatalog();
-    }
-
-    function updateCalculations() {
-      let total = 0;
-      let dynoPoints = 0;
-      const listContainer = document.getElementById("selectedItemsList");
-      let selectedListHtml = "";
-
-      catalog.forEach(cat => {
-        cat.items.forEach(item => {
-          if (selectedItems.has(item.id)) {
-            const price = isPartnerActive ? item.partner : item.normal;
-            total += price;
-            if (item.perf) dynoPoints += item.perf;
-
-            selectedListHtml += `
-              <div class="flex items-center justify-between py-1 border-b border-zinc-900/80">
-                <span class="text-zinc-300 truncate max-w-[170px]">${item.name}</span>
-                <span class="font-bold ${isPartnerActive ? 'text-lime-400' : 'text-zinc-300'}">${formatBRL(price)}</span>
-              </div>
-            `;
-          }
-        });
-      });
-
-      if (extrasQuantity > 0) {
-        const extrasTotal = extrasQuantity * EXTRA_UNIT_PRICE;
-        total += extrasTotal;
-        selectedListHtml += `
-          <div class="flex items-center justify-between py-1 border-b border-zinc-900/80">
-            <span class="text-zinc-300 truncate max-w-[170px]">Extras (${extrasQuantity}x)</span>
-            <span class="font-bold text-lime-400">${formatBRL(extrasTotal)}</span>
-          </div>
-        `;
-      }
-
-      const totalItemsCount = selectedItems.size + (extrasQuantity > 0 ? 1 : 0);
-      document.getElementById("selectedCount").textContent = totalItemsCount;
-      document.getElementById("totalPrice").textContent = formatBRL(total);
-      document.getElementById("selectedItemsList").innerHTML = selectedListHtml || `<p class="text-zinc-600 italic py-2 text-center text-xs">Nenhum item selecionado</p>`;
-
-      // Dyno
-      let dynoPercent = Math.min(100, dynoPoints);
-      let stage = "PADRÃO";
-      if (dynoPercent >= 90) stage = "FULL MONSTER";
-      else if (dynoPercent >= 60) stage = "STAGE 3";
-      else if (dynoPercent >= 30) stage = "STAGE 2";
-      else if (dynoPercent > 0) stage = "STAGE 1";
-
-      document.getElementById("dynoPercent").textContent = `${dynoPercent}%`;
-      document.getElementById("dynoStage").textContent = stage;
-    }
-
-    // Toggle Parceria
-    document.getElementById("partnerToggle").addEventListener("change", (e) => {
-      isPartnerActive = e.target.checked;
-      const text = document.getElementById("partnerStatusText");
-      const badge = document.getElementById("partnerBadgeApplied");
-      
-      if (isPartnerActive) {
-        text.textContent = "ATIVADA";
-        text.className = "text-xs font-bold font-heading tracking-wider text-lime-400";
-        badge.classList.remove("hidden");
-      } else {
-        text.textContent = "DESATIVADA";
-        text.className = "text-xs font-bold font-heading tracking-wider text-zinc-500";
-        badge.classList.add("hidden");
-      }
-      renderCatalog();
-    });
-
-    // Copiar Orçamento Formatado para FiveM / Discord
-    function copyQuote() {
-      const clientId = document.getElementById("clientIdInput").value || "N/A";
-      let total = 0;
-      let itemsLines = [];
-
-      catalog.forEach(cat => {
-        cat.items.forEach(item => {
-          if (selectedItems.has(item.id)) {
-            const price = isPartnerActive ? item.partner : item.normal;
-            total += price;
-            itemsLines.push(`• ${item.name}: ${formatBRL(price)}`);
-          }
-        });
-      });
-
-      if (extrasQuantity > 0) {
-        const extraTotal = extrasQuantity * EXTRA_UNIT_PRICE;
-        total += extraTotal;
-        itemsLines.push(`• Extras (${extrasQuantity}x): ${formatBRL(extraTotal)}`);
-      }
-
-      if (itemsLines.length === 0) {
-        alert("Selecione ao menos um item antes de copiar o orçamento.");
-        return;
-      }
-
-      const quoteText = `🔧 **ORÇAMENTO REDLINE MECÂNICA** 🔧\n` +
-        `👤 **Cliente ID:** ${clientId}\n` +
-        `🤝 **Parceria:** ${isPartnerActive ? 'SIM (Desconto Aplicado)' : 'NÃO'}\n\n` +
-        `📋 **Serviços Selecionados:**\n` +
-        itemsLines.join('\n') + `\n\n` +
-        `💰 **TOTAL:** ${formatBRL(total)}\n` +
-        `Obrigado pela preferência!`;
-
-      navigator.clipboard.writeText(quoteText).then(() => {
-        const toast = document.getElementById("copyToast");
-        toast.classList.remove("opacity-0", "pointer-events-none");
-        toast.classList.add("opacity-100");
-        setTimeout(() => {
-          toast.classList.remove("opacity-100");
-          toast.classList.add("opacity-0", "pointer-events-none");
-        }, 2500);
-      });
-    }
-
-    // Player de Música
-    function playMusic() {
-      const url = document.getElementById("ytUrlInput").value.trim();
-      if (!url) return;
-      let videoId = "";
-      if (url.includes("v=")) {
-        videoId = url.split("v=")[1].split("&")[0];
-      } else if (url.includes("youtu.be/")) {
-        videoId = url.split("youtu.be/")[1].split("?")[0];
-      }
-      if (videoId) {
-        const iframe = document.getElementById("ytIframe");
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        document.getElementById("ytPlayerContainer").classList.remove("hidden");
-      }
-    }
-
-    renderCatalog();
-  </script>
-</body>
-</html>
+    <div class="lg:col-span-8 space
